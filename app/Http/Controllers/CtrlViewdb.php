@@ -16,4 +16,10 @@ class CtrlViewdb extends Controller
         return view('main', compact('baza'));
 
     }
+    public function show_art()
+    {
+        $baza=db::table("artykuly")->get();
+        return view('news', compact('baza'));
+
+    }
 }

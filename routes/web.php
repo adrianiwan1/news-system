@@ -16,7 +16,30 @@ use App\Http\Controllers\CtrlViewdb;
 Route::get('/', function () {
     return view('main');
 });
-Route::get('/contact', function () {
+
+/*Route::get('/contact', function () {
     return view('contact');
-});
+});*/
 Route::get('/show',[CtrlViewdb::class,'show_data']);
+
+Route::get('/temp', function () {
+    return view('temp');
+});
+
+Route::get('/default', function () {
+    return view('default');  // ważne
+});
+
+Route::get('/news', function () {
+    return view('news');// ważne
+});
+
+Route::get('/news',[CtrlViewdb::class,'show_art']); // ważne
+
+Route::get('/temp2', function () {
+    return view('temp2');
+});
+
+Route::get('/fullnews', function () {
+    return view('fullnews');
+});

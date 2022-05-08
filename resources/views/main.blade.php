@@ -1,5 +1,5 @@
 Główna Strona
-
+@isset($baza)
 @foreach($baza as $bazaEnd)
 <div>
 <h2>{{$bazaEnd->tytul}}</h2>
@@ -8,3 +8,4 @@ Główna Strona
 </div>
 
 @endforeach
+@endif
