@@ -12,10 +12,11 @@ use App\Http\Controllers\CtrlViewdb;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('main');
 });
+*/
 
 /*Route::get('/contact', function () {
     return view('contact');
@@ -30,11 +31,11 @@ Route::get('/default', function () {
     return view('default');  // ważne
 });
 
-Route::get('/news', function () {
+// default view, all articles
+Route::get('/', function () {
     return view('news');// ważne
 });
-
-Route::get('/news',[CtrlViewdb::class,'show_art']); // ważne
+Route::get('/',[CtrlViewdb::class,'show_art']); // ważne
 
 Route::get('/temp2', function () {
     return view('temp2');
