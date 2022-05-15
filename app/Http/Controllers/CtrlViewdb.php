@@ -12,14 +12,20 @@ class CtrlViewdb extends Controller
 {
     public function show_data()
     {
-        $baza=db::table("artykuly")->get();
+        $baza=db::table("artykuly")->paginate(5);
         return view('main', compact('baza'));
+
+    }
+
+    public function paggins()
+    {
 
     }
     public function show_art()
     {
-        $baza=db::table("artykuly")->get();
+        $baza=db::table("artykuly")->paginate(5); //maginate method show records on one site
         return view('news', compact('baza'));
 
     }
+
 }

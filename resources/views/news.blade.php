@@ -19,4 +19,5 @@
     </div>
     @endforeach
     @endif
+    {!! $baza->links('vendor.pagination/paggins')!!}
 @endsection

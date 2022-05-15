@@ -18,7 +18,6 @@
                 </div>
 
                 @yield('news')
-                @yield('paggins')
                 
             </div>
         </div>   
