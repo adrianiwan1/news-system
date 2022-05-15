@@ -1,6 +1,5 @@
 @extends('default')
 @include('DefaultParts.logoandmenu')
-@include('DefaultParts.paggins')
 @include('DefaultParts.footer')
 
 @section('newsbody')
