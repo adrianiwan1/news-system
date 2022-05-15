@@ -33,11 +33,12 @@ Został stworozny podział szablonu, aby w łatwy sposób móc korzystać z jego
 ### 14.05.2020 - Stworzenie dynamicznie tworoznych podstron z artykułami
 
 Stworzyłem dynamiczne tworzenie podstron(stronnicowanie) z wykorzystaniem wbudowanych opcji framework'a Ralavel oraz nioestandardowym widokiem
-### 15.05.2020 - Stworzenie dynamicznie generowanych stron z pełną trescią rtykułu
+### 15.05.2020 - Stworzenie dynamicznie generowanych stron z pełną trescią artykułu
 
 Została stworzona klasa w kontrolerze pozwalająca na dynamiczne tworzenie pełnej strony artykułu na podstawie wskazanego ID.
 W adresie url zostaje wyświetlona wartość, która jest identyfikatorem artykułu (http://example/***). Zamiast gwiazdek występuje dane ID.
 Pozwala to na dodawanie znacznej ilości artykułów bez konieczności ręcznego dodawania trasy dla każdej z podstron jego pełnej zawartości.
+![Desktop 2022 05 15 - 23 41 10 03](https://user-images.githubusercontent.com/77799976/168495852-7f54217e-caf9-47e8-ab0b-636ab0f9d25f.gif)
 
 ## License
 
