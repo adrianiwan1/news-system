@@ -11,8 +11,11 @@
             </div>
         </div>
         <div class="col-md-7 animate-box">
-            <a href="single.html" class="fh5co_magna py-2"> {{$bazaEnd->tytul}} </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
+            <a href="{{url($bazaEnd->artykulyID)}}" class="fh5co_magna py-2"> {{$bazaEnd->tytul}}</a> 
+            <div>
+            <a class="fh5co_mini_time py-3"> {{$bazaEnd->login}} -
             {{$bazaEnd->dataPublikacji}}</a>
+        </div>
             <div class="fh5co_consectetur"> {{\Illuminate\Support\Str::limit($bazaEnd->tresc,500, $end='...')}}
             </div>
         </div>
@@ -20,4 +23,5 @@
     @endforeach
     @endif
     {!! $baza->links('vendor.pagination/paggins')!!}
+    
 @endsection

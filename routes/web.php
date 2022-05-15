@@ -21,26 +21,8 @@ Route::get('/', function () {
 /*Route::get('/contact', function () {
     return view('contact');
 });*/
-Route::get('/show',[CtrlViewdb::class,'show_data']);
-
-Route::get('/temp', function () {
-    return view('temp');
-});
-
-Route::get('/default', function () {
-    return view('default');  // ważne
-});
-
 // default view, all articles
-Route::get('/', function () {
-    return view('news');// ważne
-});
-Route::get('/',[CtrlViewdb::class,'show_art']); // ważne
 
-Route::get('/temp2', function () {
-    return view('temp2');
-});
+Route::get('/',[CtrlViewdb::class,'show_arts']); // main page with all articles
 
-Route::get('/fullnews', function () {
-    return view('fullnews');
-});
+Route::get('/{id}','App\Http\Controllers\CtrlViewdb@show_full_news'); // show selected article by id
