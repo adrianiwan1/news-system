@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="col-md-7 animate-box">
-            <a href="{{url($bazaEnd->artykulyID)}}" class="fh5co_magna py-2"> {{$bazaEnd->tytul}}</a> 
+            <a href="{{url('article',$bazaEnd->artykulyID)}}" class="fh5co_magna py-2"> {{$bazaEnd->tytul}}</a> 
             <div>
             <a class="fh5co_mini_time py-3"> {{$bazaEnd->login}} -
             {{$bazaEnd->dataPublikacji}}</a>

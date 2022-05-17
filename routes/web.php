@@ -22,7 +22,17 @@ Route::get('/', function () {
     return view('contact');
 });*/
 // default view, all articles
+Route::get('/ttt', function(){
+
+    return view('temp2');
+    
+    });
 
 Route::get('/',[CtrlViewdb::class,'show_arts']); // main page with all articles
 
-Route::get('/{id}','App\Http\Controllers\CtrlViewdb@show_full_news'); // show selected article by id
+Route::get('/article/{id}','App\Http\Controllers\CtrlViewdb@show_full_news'); // show selected article by id
+Route::get('/register', function(){
+
+return view('register');
+
+});

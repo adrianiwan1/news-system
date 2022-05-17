@@ -2,7 +2,7 @@
 @section('news')
 @foreach($aa as $aa)
 <body class="single">
-<div id="fh5co-title-box" style="background-image: url({{$aa->obrazek}}); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
+<div id="fh5co-title-box" style="background-image: url({{url('/',$aa->obrazek)}}); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="page-title">
         <span>{{$aa->login}}</span>
