@@ -40,6 +40,10 @@ W adresie url zostaje wyświetlona wartość, która jest identyfikatorem artyku
 Pozwala to na dodawanie znacznej ilości artykułów bez konieczności ręcznego dodawania trasy dla każdej z podstron jego pełnej zawartości.
 ![Desktop 2022 05 15 - 23 41 10 03](https://user-images.githubusercontent.com/77799976/168495852-7f54217e-caf9-47e8-ab0b-636ab0f9d25f.gif)
 
+### 16.05.2020 - Stworzenie formulaża do rejestracji
+
+Przygotowanie do stworzenia pełnej rejestracji
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
