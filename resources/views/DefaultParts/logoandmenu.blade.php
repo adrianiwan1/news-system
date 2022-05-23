@@ -36,21 +36,25 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Community<span class="sr-only">(current)</span></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                            <a class="dropdown-item" href="#">Action in</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="Contact_us.html">Contact <span class="sr-only">(current)</span></a>
                     </li>
+                    @auth
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">Zarejestruj się <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{url('/custom-logout')}}">Wyloguj się <span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{url('/custom-logout')}}">{{Auth::User()->login}} <span class="sr-only">(current)</span></a>
+                    </li>
+                    @else
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{url('/login')}}">Zaloguj się <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{url('/register')}}">Zarejestruj się <span class="sr-only">(current)</span></a>
+                    </li>
+                    @endauth
+                    
                 </ul>
             </div>
         </nav>

@@ -17,10 +17,19 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'uzytkownicy';
+    protected $primaryKey = 'UzytkownicyID';
+    public $timestamps = false;
     protected $fillable = [
-        'name',
-        'email',
+        'login',
         'password',
+        'dataUrodzenia',
+        'plec',
+        'wojewodzstwo',
+        'powiat',
+        'miejscowosc',
+        'rola',
+        'zbanowany'
     ];
 
     /**
@@ -30,8 +39,13 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
+        
     ];
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
 
     /**
      * The attributes that should be cast.

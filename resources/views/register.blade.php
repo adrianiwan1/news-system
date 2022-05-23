@@ -3,7 +3,8 @@
 <div class="wrapper">
 			<div class="inner">
 				
-				<form class="container-fluid bg-faded col-12" action="">
+				<form class="container-fluid bg-faded col-12" action="{{route('register')}}" method="POST">
+					@csrf
 					<h3>Rejestracja</h3>
 					<div class="form-group">
                         
@@ -12,14 +13,12 @@
                         
                         
 						<input type="password" placeholder="Hasło" name="password" class="form-control">
-                        
 					</div>
 					<div class="form-wrapper">
-						<input type="date"  class="form-control">
+						<input type="date" name="date" class="form-control">
 					</div>
-					
 					<div class="form-wrapper">
-						<select name="plec" id="" class="form-control">
+						<select name="plec" class="form-control">
 							<option value="" disabled selected>Płeć</option>
 							<option value="m">Mężczyzna</option>
 							<option value="k">Kobieta</option>
@@ -56,8 +55,11 @@
 						<input type="text" name="miejscowosc" placeholder="Miejscowość" class="form-control">
 						<i class="zmdi zmdi-gps-dot"></i>
 					</div>
-					<input type="hidden" name="rola" value="2">
-					<button>Zarejestruj
+					
+						@if($errors->any())
+    						{!! implode('', $errors->all('<div>:message</div>')) !!}
+						@endif
+					<button type="submit" >Zarejestruj
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>
                     <div>

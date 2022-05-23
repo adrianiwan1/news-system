@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CtrlViewdb;
+use App\Http\Controllers\CtrlUser;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,10 +30,11 @@ Route::get('/ttt', function(){
     });
 
 Route::get('/',[CtrlViewdb::class,'show_arts']); // main page with all articles
-
-Route::get('/article/{id}','App\Http\Controllers\CtrlViewdb@show_full_news'); // show selected article by id
-Route::get('/register', function(){
-
-return view('register');
-
-});
+Route::get('/article/{id}',[CtrlViewdb::class,'show_full_news']);
+//Route::get('/article/{id}','App\Http\Controllers\CtrlViewdb@show_full_news'); // show selected article by id
+Route::get('/register', function(){return view('register');});
+//Route::post('/custom-register','App\Http\Controllers\CtrlUser@register')->name('register');
+Route::post('/custom-register',[CtrlUser::class,'register'])->name('register');
+Route::get('/login', function(){return view('login');});
+Route::post('/custom-login',[CtrlUser::class,'login'])->name('login');
+Route::get('/custom-logout',[CtrlUser::class,'logout'])->name('logout');

@@ -12,7 +12,7 @@ class CtrlViewdb extends Controller
     {
         $baza=db::table("artykuly")
         ->select("artykulyID","dataPublikacji","login","obrazek","tytul","tresc","artykuly.zbanowany")
-        ->join('uzytkownicy','artykuly.autor','=','uzytkownicy.uzytkownicyID')
+        ->join('uzytkownicy','artykuly.autor','=','uzytkownicy.id')
         ->where("dataPublikacji","<=",gmdate('Y-m-d H:i:s', time()))
         ->where("artykuly.zbanowany","0")
         ->orderBy('dataPublikacji','DESC')
@@ -27,7 +27,7 @@ class CtrlViewdb extends Controller
         
         $aa=db::table("artykuly")
         ->select("artykulyID","dataPublikacji","login","obrazek","tytul","tresc","artykuly.zbanowany")
-        ->join('uzytkownicy','artykuly.autor','=','uzytkownicy.uzytkownicyID')
+        ->join('uzytkownicy','artykuly.autor','=','uzytkownicy.id')
         ->where("dataPublikacji","<=",gmdate('Y-m-d H:i:s', time()))
         ->where("artykuly.artykulyID",$id)
         ->where("artykuly.zbanowany","0")
