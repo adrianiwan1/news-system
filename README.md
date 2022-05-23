@@ -44,6 +44,10 @@ Pozwala to na dodawanie znacznej ilości artykułów bez konieczności ręcznego
 
 Przygotowanie do stworzenia pełnej rejestracji
 
+### 23.05.2020 - Ukończenie procesu rejestracji
+
+Stworzenie całęgo procesu rejestracji oraz logowania wraz z widokami. W tym celu użyto fastady Auth oraz wbudowanych opcji ralavela do tworzenia zapytać do i z bazy danych. Dzięki takiemu rozwiązaniu można bez problemu wtkożystać pobranie dane użytkownika z wykorzystaniem metod klasy Auth w całm projekcie.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
