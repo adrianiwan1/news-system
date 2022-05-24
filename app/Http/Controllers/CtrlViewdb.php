@@ -32,8 +32,14 @@ class CtrlViewdb extends Controller
         ->where("artykuly.artykulyID",$id)
         ->where("artykuly.zbanowany","0")
         ->get(); //maginate method show records on one site
-        //dd($aa);
-        return view('fullnews', compact('aa'));
+
+    $komentarze=db::table('komentarze')
+    ->select('*')
+    ->join('uzytkownicy','komentarze.uzytkownicyID','=','uzytkownicy.id')
+    ->where('artykul',$id)
+    ->get();
+        //dd(compact('aa','komentarze'));
+        return view('fullnews', compact('aa','komentarze'));
         //return $aa;
     //return view('fullnews',compact($aa));
     }
