@@ -38,3 +38,13 @@ Route::post('/custom-register',[CtrlUser::class,'register'])->name('register');
 Route::get('/login', function(){return view('login');});
 Route::post('/custom-login',[CtrlUser::class,'login'])->name('login');
 Route::get('/custom-logout',[CtrlUser::class,'logout'])->name('logout');
+Route::get('/admin/artykul/dodaj', function(){
+
+    if(Auth::User()->rola == 1)
+    {
+    return view('writenews');
+    }else{
+        Redirect()-to('/');
+    }
+    
+    })->name('dodajartykul');
