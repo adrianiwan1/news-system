@@ -6,6 +6,7 @@
     <div class="overlay"></div>
     <div class="page-title">
         <span>{{$aa->login}}</span>
+        <span>{{$aa->dataPublikacji}}</span>
         <h2>{{$aa->tytul}}</h2>
     </div>
 </div>
@@ -41,12 +42,13 @@
                             </div>
                             <div>
                                 <span class="d-block fh5co_small_post_heading">{{$komentarze->tresc}}</span>
-                                
+                                <div class="c_g"><i class="fa"></i> Ocena: {{$komentarze->ocena}}</div>
                             </div>
                         </div>
                     </div>
                     @endforeach
                     @auth
+                    
                     <div class="container-fluid pb-4 pt-5">
                         <div class="container">
                             <div>
@@ -55,6 +57,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     @endauth
     </div>
 </div>

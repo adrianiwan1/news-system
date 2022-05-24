@@ -27,18 +27,20 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="single.html">Single <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">World <span class="sr-only">(current)</span></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                            <a class="dropdown-item" href="#">Action in</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="Contact_us.html">Contact <span class="sr-only">(current)</span></a>
                     </li>
+                    @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Panel admina <span class="sr-only">(current)</span></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
+                            <a class="dropdown-item" href="#">Napisz artykuł</a>
+                            <a class="dropdown-item" href="#">Wyświetl wszystkich użytkowników</a>
+                            <a class="dropdown-item" href="#">Przejdź do pełnego panelu</a>
+                        </div>
+                    </li>
+                    @endauth
                     @auth
                     <li class="nav-item ">
                         <a class="nav-link" href="{{url('/custom-logout')}}">Wyloguj się <span class="sr-only">(current)</span></a>
