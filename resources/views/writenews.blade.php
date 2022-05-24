@@ -9,21 +9,22 @@
                 <!--
                     // TODO: Form do tworzenia artykułu
                     !-->
-			<div class="inner">
+			
 				
 				<form class="container-fluid bg-faded col-12" action="" method="POST">
 					@csrf
 					<h3>Dodawanie artykułu</h3>
-					<div class="form-group">
+					<div class="form-wrapper">
 						<input type="text" placeholder="Tytuł" name="tytul" class="form-control">
-
+					</div>
+					<div>
 						<input type="date" name="date" class="form-control" value="{{gmdate('Y-m-d H:i:s', time())}}">
 					</div>
 					<div class="form-wrapper">
 						<input type="file" name="image" class="form-control">
 					</div>
                     <div class="form-wrapper">
-                        <textarea class="form-control" placeholder="Treść" rows="10" name="text"></textarea>
+                        <textarea class="form-control" id='myeditorinstance' placeholder="Treść" rows="10" name="text"></textarea>
                         <br>
 					</div>
 					
@@ -36,7 +37,7 @@
                     <div>
                     </div>
 				</form>
-			</div>
+			
 		</div>
                         
                         

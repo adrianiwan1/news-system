@@ -29,4 +29,16 @@
 <script src="/js/jquery.waypoints.min.js"></script>
 <!-- Main -->
 <script src="/js/main.js"></script>
+<!-- TinyMCE -->
+<script src="https://cdn.tiny.cloud/1/igeq5tozkkmse1d16cp6v5dkfwpjt6zce6sdhus13o1ji4qf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+ <script>
+   tinymce.init({
+     selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+     language: 'pl',
+     min_height: 500,
+     plugins: 'code table lists, preview',
+     menubar: ' edit insert view format table tools help',
+     toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
+   });
+ </script>
 @endsection
