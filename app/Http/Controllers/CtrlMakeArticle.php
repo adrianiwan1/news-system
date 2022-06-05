@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Purifier;
 
 class CtrlMakeArticle extends Controller
 {
@@ -23,7 +24,7 @@ class CtrlMakeArticle extends Controller
             'dataPublikacji' => $request -> date,
             'autor' => Auth::id(),
             'tytul' => $request -> tytul,
-            'tresc' => $request -> text,
+            'tresc' => Purifier::clean($request -> text),
             'obrazek' => $image,
             'zbanowany' => '0'
         ]);
@@ -43,6 +44,8 @@ class CtrlMakeArticle extends Controller
     public function edit_article(REquest $request)
     {
         $baza::table('artykuly')
+        ->get();
+        return Redirect()->to('/');
     }
 
     public function add_comment(Request $request)

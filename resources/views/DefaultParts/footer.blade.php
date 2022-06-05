@@ -40,6 +40,7 @@
      min_height: 500,
      plugins: 'code table lists, preview',
      menubar: ' edit insert view format table tools help',
+     invalid_elements : 'script',
      toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
    });
  </script>
