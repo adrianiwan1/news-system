@@ -2,7 +2,7 @@
 @section('news')
 @foreach($aa as $aa)
 <body class="single">
-<div id="fh5co-title-box" style="background-image: url({{url('/',$aa->obrazek)}}); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
+<div id="fh5co-title-box" style="background-image: url({{url('/','storage/'.$aa->obrazek)}}); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="page-title">
         <span>{{$aa->login}}</span>
@@ -19,7 +19,8 @@
                     // TODO: zawartość artykułu, wczytać ją z bazy danych
 
                 -->
-                    {{$aa->tresc}}
+                    {!!$aa->tresc!!}
+                   
                 <!--
                     //TODO: koniec artykułu
                 -->
@@ -53,7 +54,13 @@
                         <div class="container">
                             <div>
                                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Napisz komentarz</div>
-                                <span> TUTAJ BEDZIE FORM DO KOMENTARZY</span>
+                                <form method="GET" align="center" action='index.php'>
+                                    <input type="hidden" name="c" value="Artykuly">
+                                    <input type="hidden" name="f" value="dodajKomentarz">
+                                    <input type="hidden" name="id" value="">
+                                    <textarea  class="form-control" rows="5" cols="60"  name="text"></textarea><br>
+                                    <input type="submit" class="btn btn-primary" href="index.php?c=Artykuly&f=wyswietlArtykul&id=" value="dodaj komentarz">
+                                </form>
                             </div>
                         </div>
                     </div>

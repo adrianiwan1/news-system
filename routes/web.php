@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CtrlViewdb;
 use App\Http\Controllers\CtrlUser;
+use App\Http\Controllers\CtrlMakeArticle;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,12 +40,12 @@ Route::get('/login', function(){return view('login');});
 Route::post('/custom-login',[CtrlUser::class,'login'])->name('login');
 Route::get('/custom-logout',[CtrlUser::class,'logout'])->name('logout');
 Route::get('/admin/artykul/dodaj', function(){
-
     if(Auth::User()->rola == 1)
     {
     return view('writenews');
     }else{
         Redirect()-to('/');
     }
-    
     })->name('dodajartykul');
+    Route::post('/admin/artykul/zapisz',[CtrlMakeArticle::class,'add_article'])->name('zapiszartykul');
+

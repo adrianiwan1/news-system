@@ -11,18 +11,22 @@
                     !-->
 			
 				
-				<form class="container-fluid bg-faded col-12" action="" method="POST">
+				<form class="container-fluid bg-faded col-12" action="{{route('zapiszartykul')}}" method="POST" enctype="multipart/form-data">
 					@csrf
 					<h3>Dodawanie artykułu</h3>
 					<div class="form-wrapper">
+						Tytuł
 						<input type="text" placeholder="Tytuł" name="tytul" class="form-control">
 					</div>
 					<div>
-						<input type="date" name="date" class="form-control" value="{{gmdate('Y-m-d H:i:s', time())}}">
+						Data publikacji
+					<input type="datetime-local" name="date" class="form-control" value="{{gmdate('Y-m-d H:i:s', time())}}">
 					</div>
 					<div class="form-wrapper">
-						<input type="file" name="image" class="form-control">
+						Zdjęcie
+						<input type="file" name="image" class="form-control" accept="image/*">
 					</div>
+					Treść
                     <div class="form-wrapper">
                         <textarea class="form-control" id='myeditorinstance' placeholder="Treść" rows="10" name="text"></textarea>
                         <br>
@@ -31,7 +35,7 @@
 						@if($errors->any())
     						{!! implode('', $errors->all('<div>:message</div>')) !!}
 						@endif
-					<button type="submit" >Utwórz artykuł
+					<button type="submit">Utwórz artykuł
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>
                     <div>

@@ -29,6 +29,8 @@
 <script src="/js/jquery.waypoints.min.js"></script>
 <!-- Main -->
 <script src="/js/main.js"></script>
+<!-- my JS -->
+<script src="/js/my.js"></script>
 <!-- TinyMCE -->
 <script src="https://cdn.tiny.cloud/1/igeq5tozkkmse1d16cp6v5dkfwpjt6zce6sdhus13o1ji4qf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
  <script>

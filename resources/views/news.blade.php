@@ -6,7 +6,7 @@
     <div class="row pb-4">
         <div class="col-md-5">
             <div class="fh5co_hover_news_img">
-                <div class="fh5co_news_img"><img src="{{$bazaEnd->obrazek}}" alt=""/></div>
+                <div class="fh5co_news_img"><img src="{{'storage/'.$bazaEnd->obrazek}}" alt=""/></div>
                 <div></div>
             </div>
         </div>
@@ -16,7 +16,7 @@
             <a class="fh5co_mini_time py-3"> {{$bazaEnd->login}} -
             {{$bazaEnd->dataPublikacji}}</a>
         </div>
-            <div class="fh5co_consectetur"> {{\Illuminate\Support\Str::limit($bazaEnd->tresc,500, $end='...')}}
+            <div class="fh5co_consectetur"> {!!\Illuminate\Support\Str::limit($bazaEnd->tresc,500, $end='...')!!}
             </div>
         </div>
     </div>
