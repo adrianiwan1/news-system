@@ -29,4 +29,19 @@ class CtrlMakeArticle extends Controller
         ]);
         return redirect()->to('/');
     }
+
+    public function add_comment(Request $request)
+    {
+        $baza=db::table('komentarze')
+        ->insert([
+            'data' => $request -> data,
+            'uzytkownicyID' => $request -> uzytkownicyID,
+            'ocena' => '0',
+            'tresc' => $request -> tresc,
+            'artykul' => $request -> artykul,
+            'usuniety' => '0'
+        ]);
+        //dd($baza);
+        return redirect()->to($request->url);
+    }
 }

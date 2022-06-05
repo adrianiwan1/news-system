@@ -35,7 +35,7 @@ class CtrlViewdb extends Controller
         ->where("artykuly.artykulyID",$id)
         ->where("artykuly.zbanowany","0")
         ->get(); //maginate method show records on one site
-
+        //dd($aa);
     $komentarze=db::table('komentarze')
     ->select('uzytkownicy.login','data','tresc','ocena')
     ->join('uzytkownicy','komentarze.uzytkownicyID','=','uzytkownicy.id')

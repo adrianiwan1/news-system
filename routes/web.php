@@ -49,3 +49,4 @@ Route::get('/admin/artykul/dodaj', function(){
     })->name('dodajartykul');
     Route::post('/admin/artykul/zapisz',[CtrlMakeArticle::class,'add_article'])->name('zapiszartykul');
 
+Route::post('/komenarz/zapisz',[CtrlMakeArticle::class,'add_comment'])->name('zapiszkomentarz');

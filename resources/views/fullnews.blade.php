@@ -54,12 +54,14 @@
                         <div class="container">
                             <div>
                                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Napisz komentarz</div>
-                                <form method="GET" align="center" action='index.php'>
-                                    <input type="hidden" name="c" value="Artykuly">
-                                    <input type="hidden" name="f" value="dodajKomentarz">
-                                    <input type="hidden" name="id" value="">
-                                    <textarea  class="form-control" rows="5" cols="60"  name="text"></textarea><br>
-                                    <input type="submit" class="btn btn-primary" href="index.php?c=Artykuly&f=wyswietlArtykul&id=" value="dodaj komentarz">
+                                <form method="POST" action="{{route('zapiszkomentarz')}}">
+                                @csrf
+                                    <input type="hidden" name="data" value="{{now()}}">
+                                    <input type="hidden" name="uzytkownicyID" value="{{Auth::id()}}">
+                                    <input type="hidden" name="artykul" value="{{$aa->artykulyID}}">
+                                    <input type="hidden" name="url" value="{{Request::url()}}">
+                                    <textarea  class="form-control" rows="5" cols="60"  name="tresc"></textarea><br>
+                                    <input type="submit" class="btn btn-primary" value="dodaj komentarz">
                                 </form>
                             </div>
                         </div>

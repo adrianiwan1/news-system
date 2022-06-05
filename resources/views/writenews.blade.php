@@ -20,7 +20,7 @@
 					</div>
 					<div>
 						Data publikacji
-					<input type="datetime-local" name="date" class="form-control" value="{{gmdate('Y-m-d H:i:s', time())}}">
+					<input type="datetime-local" name="date" class="form-control" value="{{now()}}">
 					</div>
 					<div class="form-wrapper">
 						Zdjęcie
