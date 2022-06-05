@@ -52,6 +52,10 @@ Stworzenie całęgo procesu rejestracji oraz logowania wraz z widokami. W tym ce
 
 Został dodany edytor WYSWIG TinyMCE. Jest to potęzne i rozbudowane w edycję nażędzie pozwalające twożyć artykuły z wykożystaniem tagów HTML.
 
+### 5.06.2022 - Dodanie dodatkowych funkcji
+
+Dodanie opcji dodawania komentarzy dal użytkowników zalogowanych. Dodanie opcji usunięcia komentarzy i artykułów dla użytkowników oraz zabezpieczenie textarea przed atakiem XSS.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
