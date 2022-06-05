@@ -24,6 +24,16 @@
                 <!--
                     //TODO: koniec artykułu
                 -->
+                <div>
+                @if ( isset(Auth::user()->rola) && Auth::user()->rola == 1)
+                                <form method="POST" action="{{route('usunartykul')}}">
+                                @csrf
+                                    <input type="hidden" name="data" value="{{$aa->dataPublikacji}}">
+                                    <input type="hidden" name="artykulyID" value="{{$aa->artykulyID}}">
+                                    <input type="submit" class="btn_pagging" value="usuń artykul">
+                                </form>
+                                @endif
+                </div> 
             </div>
         </div>
     </div>
@@ -44,6 +54,15 @@
                             <div>
                                 <span class="d-block fh5co_small_post_heading">{{$komentarze->tresc}}</span>
                                 <div class="c_g"><i class="fa"></i> Ocena: {{$komentarze->ocena}}</div>
+                                @if ( isset(Auth::user()->rola) && Auth::user()->rola == 1)
+                                <form method="POST" action="{{route('usunkomentarz')}}">
+                                @csrf
+                                    <input type="hidden" name="data" value="{{$komentarze->data}}">
+                                    <input type="hidden" name="komentarzeID" value="{{$komentarze->komentarzeID}}">
+                                    <input type="hidden" name="url" value="{{Request::url()}}">
+                                    <input type="submit" class="btn_pagging" value="usuń komentarz">
+                                </form>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -61,7 +80,7 @@
                                     <input type="hidden" name="artykul" value="{{$aa->artykulyID}}">
                                     <input type="hidden" name="url" value="{{Request::url()}}">
                                     <textarea  class="form-control" rows="5" cols="60"  name="tresc"></textarea><br>
-                                    <input type="submit" class="btn btn-primary" value="dodaj komentarz">
+                                    <input type="submit" class="btn_pagging" value="dodaj komentarz">
                                 </form>
                             </div>
                         </div>

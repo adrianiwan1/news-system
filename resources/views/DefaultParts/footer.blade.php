@@ -43,4 +43,11 @@
      toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
    });
  </script>
+ <!-- table -->
+ <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+ <script>
+ $(document).ready( function () {
+    $('#datatablesSimple').DataTable();
+} );
+   </script>
 @endsection

@@ -37,7 +37,7 @@ class CtrlViewdb extends Controller
         ->get(); //maginate method show records on one site
         //dd($aa);
     $komentarze=db::table('komentarze')
-    ->select('uzytkownicy.login','data','tresc','ocena')
+    ->select('uzytkownicy.login','data','tresc','ocena','komentarzeID')
     ->join('uzytkownicy','komentarze.uzytkownicyID','=','uzytkownicy.id')
     ->where('artykul',$id)
     ->where('komentarze.usuniety',"0")

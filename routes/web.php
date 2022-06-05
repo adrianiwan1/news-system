@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CtrlViewdb;
 use App\Http\Controllers\CtrlUser;
+use App\Http\Controllers\CtrlAdmin;
 use App\Http\Controllers\CtrlMakeArticle;
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +45,13 @@ Route::get('/admin/artykul/dodaj', function(){
     {
     return view('writenews');
     }else{
-        Redirect()-to('/');
+        Redirect()->to('/');
     }
     })->name('dodajartykul');
     Route::post('/admin/artykul/zapisz',[CtrlMakeArticle::class,'add_article'])->name('zapiszartykul');
+    Route::post('/admin/artykul/usun',[CtrlMakeArticle::class,'delete_article'])->name('usunartykul');
 
 Route::post('/komenarz/zapisz',[CtrlMakeArticle::class,'add_comment'])->name('zapiszkomentarz');
+Route::post('/komenarz/usun',[CtrlMakeArticle::class,'delete_comment'])->name('usunkomentarz');
+
+Route::get('/admin/all_users',[CtrlAdmin::class,'all_users'])->name('wszyscyurzytkownicy');

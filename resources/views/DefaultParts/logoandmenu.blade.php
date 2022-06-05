@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="blog.html">Blog <span class="sr-only">(current)</span></a>
@@ -30,17 +30,17 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="Contact_us.html">Contact <span class="sr-only">(current)</span></a>
                     </li>
-                    @auth
+                    @if ( isset(Auth::user()->rola) && Auth::user()->rola == 1)
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Panel admina <span class="sr-only">(current)</span></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
                             <a class="dropdown-item" href="{{route('dodajartykul')}}">Napisz artykuł</a>
-                            <a class="dropdown-item" href="#">Wyświetl wszystkich użytkowników</a>
+                            <a class="dropdown-item" href="{{route('wszyscyurzytkownicy')}}">Wyświetl wszystkich użytkowników</a>
                             <a class="dropdown-item" href="#">Przejdź do pełnego panelu</a>
                         </div>
                     </li>
-                    @endauth
+                    @endif
                     @auth
                     <li class="nav-item ">
                         <a class="nav-link" href="{{url('/custom-logout')}}">Wyloguj się <span class="sr-only">(current)</span></a>

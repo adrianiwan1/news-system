@@ -30,6 +30,21 @@ class CtrlMakeArticle extends Controller
         return redirect()->to('/');
     }
 
+    public function delete_article(Request $request)
+    {
+        $baza=db::table('artykuly')
+        ->where('dataPublikacji',$request->data)
+        ->where('artykulyID',$request->artykulyID)
+        ->delete();
+
+        return redirect()->to('/');
+    }
+
+    public function edit_article(REquest $request)
+    {
+        $baza::table('artykuly')
+    }
+
     public function add_comment(Request $request)
     {
         $baza=db::table('komentarze')
@@ -42,6 +57,16 @@ class CtrlMakeArticle extends Controller
             'usuniety' => '0'
         ]);
         //dd($baza);
+        return redirect()->to($request->url);
+    }
+
+    public function delete_comment(Request $request)
+    {
+        $baza=db::table('komentarze')
+        ->where('data',$request->data)
+        ->where('komentarzeID',$request->komentarzeID)
+        ->delete();
+
         return redirect()->to($request->url);
     }
 }
