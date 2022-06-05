@@ -55,7 +55,7 @@ class CtrlMakeArticle extends Controller
             'data' => $request -> data,
             'uzytkownicyID' => $request -> uzytkownicyID,
             'ocena' => '0',
-            'tresc' => $request -> tresc,
+            'tresc' => Purifier::clean($request -> tresc),
             'artykul' => $request -> artykul,
             'usuniety' => '0'
         ]);
