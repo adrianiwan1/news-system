@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artykuly;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use View;
 
 class CtrlViewdb extends Controller
 {
@@ -43,8 +44,23 @@ class CtrlViewdb extends Controller
     ->where('komentarze.usuniety',"0")
     ->get();
        
+       //return view('fullnews', compact('aa','komentarze'));
+        
+        //View::composer(['fullnews','comments'],compact('aa','komentarze'));
         return view('fullnews', compact('aa','komentarze'));
-        //return $aa;
-    //return view('fullnews',compact($aa));
     }
+
+    public function show_comments($id)
+    {
+        $komentarze=db::table('komentarze')
+        ->select('uzytkownicy.login','data','tresc','ocena','komentarzeID')
+        ->join('uzytkownicy','komentarze.uzytkownicyID','=','uzytkownicy.id')
+        ->where('artykul',$id)
+        ->where('komentarze.usuniety',"0")
+        ->get();
+        
+        return view('ajax', compact('komentarze'));
+
+    }
+    
 }

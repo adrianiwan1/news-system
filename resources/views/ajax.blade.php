@@ -1,0 +1,2 @@
+@include('comments')
+@yield('comments')

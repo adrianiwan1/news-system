@@ -27,7 +27,7 @@ Route::get('/', function () {
 // default view, all articles
 Route::get('/ttt', function(){
 
-    return view('temp2');
+    return view('ajax');
     
     });
 
@@ -55,3 +55,5 @@ Route::post('/komenarz/zapisz',[CtrlMakeArticle::class,'add_comment'])->name('za
 Route::post('/komenarz/usun',[CtrlMakeArticle::class,'delete_comment'])->name('usunkomentarz');
 
 Route::get('/admin/all_users',[CtrlAdmin::class,'all_users'])->name('wszyscyurzytkownicy');
+
+Route::get('/api/{id}',[CtrlViewdb::class,'show_comments'])->name('apikomentarz');

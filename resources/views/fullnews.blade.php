@@ -1,4 +1,5 @@
 @extends('DefaultParts.fullnewsbody')
+@include('comments')
 @section('news')
 @foreach($aa as $aa)
 <body class="single">
@@ -33,6 +34,7 @@
                                     <input type="submit" class="btn_pagging" value="usuń artykul">
                                 </form>
                                 @endif
+                                @endforeach
                 </div> 
             </div>
         </div>
@@ -43,52 +45,59 @@
         <div>
             <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Komentarze</div>
         </div>
-                    @foreach($komentarze as $komentarze)
-                    </br>
-                    <div class="item px-2">
-                        <div class="fh5co_hover_news_img">
-                            <div>
-                            <span class="d-block fh5co_small_post_heading">{{$komentarze->login}}</span>
-                            <div class="c_g"><i class="fa fa-clock-o"></i> {{$komentarze->data}}</div>
-                            </div>
-                            <div>
-                                <span class="d-block fh5co_small_post_heading">{{$komentarze->tresc}}</span>
-                                <div class="c_g"><i class="fa"></i> Ocena: {{$komentarze->ocena}}</div>
-                                @if ( isset(Auth::user()->rola) && Auth::user()->rola == 1)
-                                <form method="POST" action="{{route('usunkomentarz')}}">
-                                @csrf
-                                    <input type="hidden" name="data" value="{{$komentarze->data}}">
-                                    <input type="hidden" name="komentarzeID" value="{{$komentarze->komentarzeID}}">
-                                    <input type="hidden" name="url" value="{{Request::url()}}">
-                                    <input type="submit" class="btn_pagging" value="usuń komentarz">
-                                </form>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                    @auth
+                <div id='comments'>
+                @yield('comments')
+                </div>
+                @auth
                     
                     <div class="container-fluid pb-4 pt-5">
                         <div class="container">
                             <div>
                                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Napisz komentarz</div>
-                                <form method="POST" action="{{route('zapiszkomentarz')}}">
+                                <form method="POST" action="{{route('zapiszkomentarz')}}" id='dodajkomentarz'>
                                 @csrf
                                     <input type="hidden" name="data" value="{{now()}}">
                                     <input type="hidden" name="uzytkownicyID" value="{{Auth::id()}}">
                                     <input type="hidden" name="artykul" value="{{$aa->artykulyID}}">
                                     <input type="hidden" name="url" value="{{Request::url()}}">
                                     <textarea  class="form-control" rows="5" cols="60"  name="tresc"></textarea><br>
-                                    <input type="submit" class="btn_pagging" value="dodaj komentarz">
+                                    <input type="button" id="subm" class="btn_pagging" value="dodaj komentarz">
                                 </form>
                             </div>
                         </div>
                     </div>
                     
-                    @endauth
+                    @endauth    
     </div>
 </div>
-@endforeach
+<script>
+    const x = document.querySelector('#dodajkomentarz')
+    const y = document.querySelector('#subm')
+    const z = document.querySelector('#comments')
+
+    function submitform()
+    {
+        const data = new FormData(x);
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "{{route('zapiszkomentarz')}}");
+        xhr.onreadystatechange=function(){
+            if(this.readyState == 4 && this.status == 200)
+            {
+                const xhr=new XMLHttpRequest();
+                xhr.open('GET',"/api/{{$aa->artykulyID}}")
+                xhr.onreadystatechange=function()
+                {
+                    if(this.readyState == 4 && this.status == 200)
+                    {
+                        z.innerHTML=this.responseText
+                    }
+                }
+                xhr.send()
+            }   
+        }
+        xhr.send(data); 
+    }
+    y.addEventListener("click",submitform)
+    </script>
 </body>
 @endsection
