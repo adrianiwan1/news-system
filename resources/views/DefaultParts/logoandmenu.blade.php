@@ -11,7 +11,7 @@
 
 <div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
     <div class="container padding_786">
-        <nav class="navbar navbar-toggleable-md navbar-light ">
+        <nav class="navbar navbar-toggleable-md navbar-light">
             <button class="navbar-toggler navbar-toggler-right mt-3" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
@@ -20,15 +20,6 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="blog.html">Blog <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="single.html">Single <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="Contact_us.html">Contact <span class="sr-only">(current)</span></a>
                     </li>
                     @if ( isset(Auth::user()->rola) && Auth::user()->rola == 1)
                     <li class="nav-item dropdown">
